@@ -1,0 +1,140 @@
+﻿<div ng-show="pesquisaComErro" class="alert alert-danger">
+    <p ng-bind-html="mensagemErro"></p>
+</div>
+
+<form ng-submit="pesquisar()">
+    <div class="panel panel-default">
+        <div class="panel-heading">
+            Buscar Prestador
+        </div>
+
+        <div class="panel-body">
+
+            <div class="form-group">
+                <label for="servicoPrestado">Serviço Prestado</label>
+                <input class="form-control" type="text" id="servicoPrestado"
+                       ng-model="pesquisa.servicoPrestado"
+                       required>
+            </div>
+        </div>
+
+        <div class="panel-heading">
+            Local do Serviço
+        </div>
+        <div class="panel-body">
+            <div class="row">
+                <div class="form-group col-xs-12 col-sm-8">
+                    <label for="logradouro">Logradouro</label>
+                    <input type="text" class="form-control" id="logradouro"
+                           ng-model="pesquisa.logradouro"
+                           required>
+                </div>
+
+                <div class="form-group col-xs-12 col-sm-4">
+                    <label for="numero">Numero</label>
+                    <input type="text" class="form-control" id="numero"
+                           ng-model="pesquisa.numero"
+                           required>
+                </div>
+            </div>
+            <div class="row">
+                <div class="form-group col-xs-12 col-sm-8">
+                    <label for="bairro">Bairro</label>
+                    <input type="text" class="form-control" id="bairro"
+                           ng-model="pesquisa.bairro"
+                           required>
+                </div>
+
+                <div class="form-group col-xs-12 col-sm-4">
+                    <label for="cep">CEP</label>
+                    <input type="text" class="form-control" id="cep"
+                           ng-model="pesquisa.cep"
+                           required>
+                </div>
+            </div>
+            <div class="row">
+                <div class="form-group col-xs-12 col-sm-6">
+                    <label for="cidade">Cidade</label>
+                    <input type="text" class="form-control" id="cidade"
+                           ng-model="pesquisa.cidade"
+                           required>
+                </div>
+
+                <div class="form-group col-xs-12 col-sm-6">
+                    <label for="estado">Estado</label>
+                    <input type="text" class="form-control" id="estado"
+                           ng-model="pesquisa.estado"
+                           required>
+                </div>
+            </div>
+
+            <div class="form-group">
+                <button type="submit" class="btn btn-primary pull-right">Pesquisar</button>
+            </div>
+        </div>
+
+        <div ng-hide="!resultadoPesquisa" class="panel-heading">
+            Prestador Mais Próximo
+        </div>
+        <div ng-hide="!resultadoPesquisa || resultadoPesquisa.encontrado" class="panel-body prestador-detalhes nao-encontrado">
+            Nenhum prestador encontrado para pesquisa!
+        </div>
+        <div ng-hide="!resultadoPesquisa.encontrado" class="panel-body prestador-detalhes">
+            <div class="row">
+                <div class="col-xs-12">
+                    <label for="resultadDistancia">Distancia</label>
+                    <p id="resultadoDistancia">{{resultadoPesquisa.distancia | distancia}}</p>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-xs-12">
+                    <label for="resultadoNome">Nome</label>
+                    <p id="resultadoNome">{{resultadoPesquisa.prestador.nome}}</p>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-xs-12 col-sm-8">
+                    <label for="resultadoServicoPrestado">Serviço Prestado</label>
+                    <p id="resultadoServicoPrestado">{{resultadoPesquisa.prestador.servicoPrestado}}</p>
+                </div>
+                <div class="col-xs-12 col-sm-4">
+                    <label for="resultadoTelefone">Telefone</label>
+                    <p id="resultadoTelefone">{{resultadoPesquisa.prestador.telefone}}</p>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-xs-12 col-sm-8">
+                    <label for="resultadoLogradouro">Logradouro</label>
+                    <p id="resultadoLogradouro">{{resultadoPesquisa.prestador.endereco.logradouro}}</p>
+                </div>
+
+                <div class="col-xs-12 col-sm-4">
+                    <label for="resultadoNumero">Numero</label>
+                    <p id="resultadoNumero">{{resultadoPesquisa.prestador.endereco.numero}}</p>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-xs-12 col-sm-8">
+                    <label for="resultadoBairro">Bairro</label>
+                    <p id="resultadoBairro">{{resultadoPesquisa.prestador.endereco.bairro}}</p>
+                </div>
+
+                <div class="col-xs-12 col-sm-4">
+                    <label for="resultadoCep">CEP</label>
+                    <p id="resultadoCep">{{resultadoPesquisa.prestador.endereco.cep}}</p>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-xs-12 col-sm-6">
+                    <label for="resultadoCidade">Cidade</label>
+                    <p id="resultadoCidade">{{resultadoPesquisa.prestador.endereco.cidade}}</p>
+                </div>
+
+                <div class="col-xs-12 col-sm-6">
+                    <label for="resultadoEstado">Estado</label>
+                    <p id="resultadoEstado">{{resultadoPesquisa.prestador.endereco.estado}}</p>
+                </div>
+            </div>
+        </div>
+    </div>
+</form>

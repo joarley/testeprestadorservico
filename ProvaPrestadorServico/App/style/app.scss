@@ -1,0 +1,59 @@
+﻿@import "../../Scripts/bootstrap-sass/stylesheets/bootstrap";
+@import "../../Scripts/bootstrap-themes-paper/variables";
+@import "../../Scripts/bootstrap-themes-paper/bootswatch";
+
+
+body {
+    padding-top: 70px;
+}
+
+.nav, .pagination, .carousel, .panel-title a {
+    cursor: pointer;
+}
+
+form .form-group label {
+    font-weight: bold;
+}
+
+.prestador-detalhes {
+    &.nao-encontrado{
+        font-weight: bold;
+        color: $state-danger-text;
+    }
+    
+    .row {
+        margin-bottom: 15px;
+
+        label {
+            font-weight: bold;
+        }
+
+        p {
+            @extend .form-control-static
+        }
+    }
+}
+
+
+
+.table.prestador {
+    .nome {
+        width: 20%;
+    }
+
+    .servico-prestado {
+        width: 15%;
+    }
+
+    .telefone {
+        width: 15%;
+    }
+
+    .endereco {
+        width: 50%;
+    }
+}
+
+p.form-control-static {
+    @include box-shadow(inset 0 -1px 0 #ddd);
+}

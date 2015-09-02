@@ -1,0 +1,80 @@
+﻿<div ng-show="cadastroComErro" class="alert alert-danger">
+    <p ng-bind-html="mensagemErro"></p>
+</div>
+
+<div class="panel panel-default">
+    <div class="panel-heading">
+        Cadatro de Prestador
+    </div>
+    <div class="panel-body">
+        <form ng-submit="salvar()">
+            <div class="form-group">
+                <label for="nome">Nome</label>
+                <input type="text" class="form-control" id="nome" 
+                       ng-model="novoPrestador.nome"
+                       required>
+            </div>
+            <div class="row">
+                <div class="form-group col-xs-12 col-sm-8">
+                    <label for="servicoPrestado">Serviço Prestado</label>
+                    <input type="text" class="form-control" id="servicoPrestado"
+                           ng-model="novoPrestador.servicoPrestado"
+                           required>
+                </div>
+                <div class="form-group col-xs-12 col-sm-4">
+                    <label for="telefone">Telefone</label>
+                    <input type="text" class="form-control" id="telefone"
+                           ng-model="novoPrestador.telefone"
+                           required>
+                </div>
+            </div>
+            <div class="row">
+                <div class="form-group col-xs-12 col-sm-8">
+                    <label for="logradouro">Logradouro</label>
+                    <input type="text" class="form-control" id="logradouro"
+                           ng-model="novoPrestador.endereco.logradouro"
+                           required>
+                </div>
+
+                <div class="form-group col-xs-12 col-sm-4">
+                    <label for="numero">Numero</label>
+                    <input type="number" class="form-control" id="numero"
+                           ng-model="novoPrestador.endereco.numero"
+                           required>
+                </div>
+            </div>
+            <div class="row">
+                <div class="form-group col-xs-12 col-sm-8">
+                    <label for="bairro">Bairro</label>
+                    <input type="text" class="form-control" id="bairro"
+                           ng-model="novoPrestador.endereco.bairro"
+                           required>
+                </div>
+
+                <div class="form-group col-xs-12 col-sm-4">
+                    <label for="cep">CEP</label>
+                    <input type="text" class="form-control" id="cep"
+                           ng-model="novoPrestador.endereco.cep"
+                           required>
+                </div>
+            </div>
+            <div class="row">
+                <div class="form-group col-xs-12 col-sm-6">
+                    <label for="cidade">Cidade</label>
+                    <input type="text" class="form-control" id="cidade"
+                           ng-model="novoPrestador.endereco.cidade"
+                           required>
+                </div>
+
+                <div class="form-group col-xs-12 col-sm-6">
+                    <label for="estado">Estado</label>
+                    <input type="text" class="form-control" id="estado"
+                           ng-model="novoPrestador.endereco.estado"
+                           required>
+                </div>
+            </div>
+
+            <button type="submit" class="btn btn-primary pull-right">Salvar</button>
+        </form>
+    </div>
+</div>

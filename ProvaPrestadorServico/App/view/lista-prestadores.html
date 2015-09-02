@@ -1,0 +1,34 @@
+﻿<div class="panel panel-default">
+    <div class="panel-heading">
+        Prestadores Cadastrados
+    </div>
+    <div class="table-responsive">
+        <table class="table prestador table-bordered">
+            <thead>
+                <tr>
+                    <th class="nome">Nome</th>
+                    <th class="servico-prestado">Serviço Prestado</th>
+                    <th class="telefone">Telefone</th>
+                    <th class="endereco">Endereço</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr ng-repeat="prestador in listaPrestadores">
+                    <td>{{prestador.nome}}</td>
+                    <td>{{prestador.servicoPrestado}}</td>
+                    <td>{{prestador.telefone}}</td>
+                    <td>{{prestador.endereco | endereco}}</td>
+                </tr>
+            </tbody>
+            <tfoot ng-hide="listaPrestadores.length > 0">
+                <tr>
+                    <td colspan="4">
+                        Nenhum Prestador Cadastrado
+                    </td>
+                </tr>
+            </tfoot>
+        </table>
+    </div>
+</div>
+
+
